@@ -13,7 +13,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "nome", nullable = false, length = 64)
     private String nome;
@@ -21,27 +21,16 @@ public class Usuario {
     @Column(name = "cpf", nullable = false, unique = true, length = 11)
     private String cpf;
 
-    // TODO - Verificar o tamanho da senha
     @Column(name = "senha", nullable = false)
     private String senha;
 
-    @Column(name = "email", unique = true, length = 320)
+    @Column(name = "email", unique = true, length = 320, nullable = false)
     private String email;
 
     @Column(name = "celular", length = 11)
     private String celular;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
+    @Column(name = "endereco", nullable = false)
     private Endereco endereco;
 
-    @ManyToOne
-    @JoinColumn(name = "status_usuario_id")
-    private StatusUsuario statusUsuario;
-
-    @OneToOne(mappedBy = "usuario")
-    private Vendedor vendedor;
-
-    @OneToMany(mappedBy = "usuario")
-    private List<Avaliacao> avaliacoes;
 }
