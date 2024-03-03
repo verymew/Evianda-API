@@ -31,6 +31,6 @@ public class Usuario {
     private String celular;
 
     @Column(name = "endereco", nullable = false)
-    private Endereco endereco;
+    private String endereco;
 
 }
