@@ -1,36 +1,34 @@
 package com.br.evianda.evianda.model;
 
-import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.List;
 import java.util.Set;
 
 @Data
-@Entity
-@Table(name = "usuarios")
+@Table("usuarios")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "nome", nullable = false, length = 64)
+    @Column("nome")
     private String nome;
 
-    @Column(name = "cpf", nullable = false, unique = true, length = 11)
+    @Column("cpf")
     private String cpf;
 
-    @Column(name = "senha", nullable = false)
+    @Column("senha")
     private String senha;
 
-    @Column(name = "email", unique = true, length = 320, nullable = false)
+    @Column("email")
     private String email;
 
-    @Column(name = "celular", length = 11)
+    @Column("celular")
     private String celular;
 
-    @Column(name = "endereco", nullable = false)
+    @Column("endereco")
     private String endereco;
-
 }
