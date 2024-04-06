@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping
 public class UsuarioController {
     @Autowired
     private UsuarioRepository userRepository;
@@ -19,5 +19,12 @@ public class UsuarioController {
     List<Usuario> retornarTodos(){
         return userRepository.findAll();
     }
+
+    @GetMapping("/teste")
+    String merda(){
+        return "juuu";
+    }
+
+
 
 }
