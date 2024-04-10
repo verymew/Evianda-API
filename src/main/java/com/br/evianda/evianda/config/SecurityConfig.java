@@ -1,4 +1,4 @@
-package com.br.evianda.evianda.utils;
+package com.br.evianda.evianda.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

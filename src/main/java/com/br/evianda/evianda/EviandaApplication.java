@@ -1,7 +1,5 @@
 package com.br.evianda.evianda;
 
-import com.br.evianda.evianda.model.Usuario;
-import com.br.evianda.evianda.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
