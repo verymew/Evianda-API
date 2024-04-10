@@ -1,16 +1,12 @@
 package com.br.evianda.evianda;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class EviandaApplication {
-	@Autowired
-	private PasswordEncoder encod;
-	public static void main(String[] args) {
-		SpringApplication.run(EviandaApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        ConfigurableApplicationContext context = SpringApplication.run(EviandaApplication.class, args);
+    }
 }

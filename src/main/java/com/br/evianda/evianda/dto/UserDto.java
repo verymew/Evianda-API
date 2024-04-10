@@ -1,7 +1,6 @@
 package com.br.evianda.evianda.dto;
 
 import lombok.AllArgsConstructor;
-import org.springframework.data.relational.core.mapping.Column;
 @AllArgsConstructor
 public class UserDto {
     private Long id;
