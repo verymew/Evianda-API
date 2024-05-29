@@ -5,36 +5,33 @@ import com.ju.api.dtos.UserLoginDto;
 import com.ju.api.models.UserModel;
 import com.ju.api.models.UserRole;
 import com.ju.api.repository.UserRepository;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
-
-import java.util.NoSuchElementException;
 
 @Service
 public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
-    private  UserRepository userRepository;
-    public Mono<UserModel> salvarUsuario(UserDto user){
-        try{
+    private UserRepository userRepository;
+    @Autowired
+    private ValidationService validationService;
+    public Mono<UserModel> salvarUsuario(@NonNull UserDto user){
             String senhaCodificada = passwordEncoder.encode(user.password());
             UserModel novoUsuario = new UserModel();
             novoUsuario.setUsername(user.username());
             novoUsuario.setPassword(senhaCodificada);
             novoUsuario.setCpf(user.cpf());
             novoUsuario.setEmail(user.email());
-            novoUsuario.setUserRole(UserRole.USER);
+            novoUsuario.setUserRole(UserRole.USER); //Seta o usuário como USER
+            if(!validationService.UsernameIsValid(novoUsuario.getUsername())){
+                throw new RuntimeException("TA NULA");
+            }
             return userRepository.save(novoUsuario);
-        }catch (Exception e){
-            throw new RuntimeException("Não foi possível registrar");
-        }
     }
     public Mono<UserModel> procurarUsuario(UserLoginDto usuario){
         //procura usuário através do username

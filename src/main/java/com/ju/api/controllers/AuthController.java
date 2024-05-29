@@ -1,9 +1,5 @@
 package com.ju.api.controllers;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.interfaces.Claim;
-import com.auth0.jwt.interfaces.DecodedJWT;
-import com.ju.api.dtos.TokenDto;
 import com.ju.api.dtos.UserDto;
 import com.ju.api.dtos.UserLoginDto;
 import com.ju.api.models.UserModel;
@@ -16,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
