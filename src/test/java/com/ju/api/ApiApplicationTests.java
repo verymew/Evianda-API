@@ -1,10 +1,10 @@
-package com.br.evianda.evianda;
+package com.ju.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EviandaApplicationTests {
+class ApiApplicationTests {
 
 	@Test
 	void contextLoads() {
