@@ -37,6 +37,10 @@ public class AuthController {
         Mono<CsrfToken> csrfToken = exchange.getAttribute(CsrfToken.class.getName());
         return csrfToken != null ? csrfToken : Mono.empty();
     }
+    @PostMapping("/oi")
+    public Mono<String> responder(@RequestBody String oi){
+        return Mono.just(oi);
+    }
     @GetMapping("/pq")
     public Mono<String> oi(){
         return Mono.just("OIIIIIIIIIIIIIII");

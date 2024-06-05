@@ -36,12 +36,12 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.csrfTokenRepository(CookieServerCsrfTokenRepository.withHttpOnlyFalse()))                .authenticationManager(reactiveAuthenticationManager)
                 .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/api/pq").hasAuthority("USER")
+                        .pathMatchers("/api/pq").permitAll()
                         .pathMatchers("/api/login").permitAll()
                         .pathMatchers("/api/salvar", "/api/ver").authenticated()
-                        .pathMatchers("/api/registrar", "/api/csrf").permitAll()
+                        .pathMatchers("/api/registrar", "/api/csrf","/api/oi").permitAll()
                         .anyExchange().authenticated()
-                ).addFilterBefore(new JwtFilter(tokenService), SecurityWebFiltersOrder.HTTP_BASIC)
+                ).addFilterAt(new JwtFilter(tokenService), SecurityWebFiltersOrder.HTTP_BASIC)
                 .build();
     }
     @Bean
