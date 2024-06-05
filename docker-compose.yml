@@ -22,8 +22,5 @@ services:
       SPRING_R2DBC_URL: r2dbc:postgresql://postgres:5432/evianda
       SPRING_R2DBC_USERNAME: postgres
       SPRING_R2DBC_PASSWORD: 123
-      SPRING_FLYWAY_URL: jdbc:postgresql://postgres:5432/evianda
-      SPRING_FLYWAY_LOCATIONS: classpath:db/migration
-
 volumes:
   postgres-data:

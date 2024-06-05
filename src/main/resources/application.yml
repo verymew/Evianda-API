@@ -2,7 +2,4 @@ spring:
   r2dbc:
     username: postgres
     password: 123
-    url: r2dbc:postgresql://localhost:5432/evianda
-  flyway:
-    url: jdbc:postgresql://localhost:5432/evianda
-    locations: classpath:db/migration
+    url: r2dbc:postgresql://postgres:5432/evianda

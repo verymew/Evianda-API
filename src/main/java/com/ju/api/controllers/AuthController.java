@@ -22,7 +22,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class AuthController {

@@ -24,6 +24,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.authorization.AuthorizationContext;
 import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository;
 import org.springframework.security.web.server.csrf.CookieServerCsrfTokenRepository;
+import org.springframework.web.reactive.config.CorsRegistry;
 import reactor.core.publisher.Mono;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -73,4 +74,5 @@ public class SecurityConfig {
         authenticationManager.setPasswordEncoder(passwordEncoder); //Utiliza o BCRYPT para fazer a comparação de senha
         return authenticationManager;
     }
+
 }
